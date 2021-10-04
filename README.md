@@ -1,5 +1,5 @@
 # new-world-fisher
-A fishing bot built in Python
+A fishing script written in Python
 
 # How to use
 set your game to window mode
