@@ -3,12 +3,21 @@ import pyautogui
 from asyncio.tasks import sleep
 starttime = time.time()
 x = 0
+y = 0
 while True:
     startButton = pyautogui.locateOnScreen('Capture.png', confidence = 0.7)
     if startButton == None:
-        print("no fish waiting")
+        y = y + 1
+        if y > 200:
+            print("something is fishy.... recasting")
+            pyautogui.mouseDown()
+            time.sleep(1.9)
+            pyautogui.mouseUp()
+            y = 0
+        print("no fish waiting ", 200 - y)
     if startButton != None:
         print("FISH!!!!!!!!!!!!")
+        y = 0
         pyautogui.click()
         while True:
             meter = pyautogui.locateOnScreen('meter.png', confidence = 0.7)
